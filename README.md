@@ -69,7 +69,11 @@ do_install_append () {
     ... (read on the internet)
 } 
 
-
+if some library isn't being fetched - try updating the ca-certificates:
+``` 
+sudo apt update ; sudo apt-get install apt-transport-https ca-certificates -y ; sudo update-ca-certificates
+```
+sudo apt update ; sudo apt-get install apt-transport-https ca-certificates -y ; sudo update-ca-certificates
 ## remaining questions 
 1. creating spacely machine 
 2. RTI 
