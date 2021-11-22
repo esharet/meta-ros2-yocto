@@ -1,0 +1,7 @@
+
+SITE_CONF_VERSION = "1" 
+
+SOURCE_MIRROR_URL ?= "... " (server storing all the downloaded sources)
+SSTATE_MIRRORS ?= "... " (for cache being created by automation on the server)  
+NVIDIA_DEVNET_MIRROR ?= "..." 
+CONNECTIVITY_CHECK_URIS ?= ""
