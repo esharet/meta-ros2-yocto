@@ -1,0 +1,9 @@
+[submodule "meta-board"]
+	path = meta-board
+	url = https://github.com/esharet/meta-board.git
+[submodule "meta-infrastructure"]
+	path = meta-infrastructure
+	url = https://github.com/esharet/meta-infrastructure.git
+[submodule "meta-external"]
+	path = meta-external
+	url = https://github.com/esharet/meta-external.git
