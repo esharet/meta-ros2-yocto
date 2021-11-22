@@ -1,0 +1,5 @@
+# TEMPLATECONF=${TEMPLATECONF:-meta-project-layer/conf}
+
+source /mnt/meta-ros2-yocto/meta-external/poky/oe-init-build-env build 
+
+
