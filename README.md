@@ -74,7 +74,14 @@ if some library isn't being fetched - try updating the ca-certificates:
 sudo apt update ; sudo apt-get install apt-transport-https ca-certificates -y ; sudo update-ca-certificates
 ```
 sudo apt update ; sudo apt-get install apt-transport-https ca-certificates -y ; sudo update-ca-certificates
+
 ## remaining questions 
 1. creating spacely machine 
 2. RTI 
 3. the difference between dev image and field image (in that context - read about devtool)
+
+## steps to continue: 
+1. creating spacely machine outside 
+2. creating inside downloads repo 
+3. ros2 installation outside 
+4.  
