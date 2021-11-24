@@ -36,6 +36,7 @@
 # This sets the default machine to be qemux86-64 if no other machine is selected:
 MACHINE ??= "jetson-tx2-devkit"
 CORE_IMAGE_EXTRA_INSTALL += "dropbear vim" 
+BB_GENERATE_MIRROR_TARBALLS = "1"
 
 #
 # Where to place downloads

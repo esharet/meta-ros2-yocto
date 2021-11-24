@@ -11,10 +11,17 @@ https://www.yoctoproject.org/docs/current/mega-manual/mega-manual.html
 
 ## moving to internal environment
 cloning all the outside repos and pushing inside : 
+
 ```
-git clone --mirror
-git push --mirror
+git clone --mirror <open_source_repo>
 ```
+move the folder to the internal environment.
+in the internal environment create on the server a repo with the same name and then: 
+```
+git push --mirror <open_source_repo>
+```
+
+in order to reproduce the internal environment outside - do the same in the outside environment.  
 
 downloading all the sources: 
 ```bitbake world --runall=fetch -k```
