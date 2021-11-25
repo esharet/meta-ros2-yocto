@@ -18,10 +18,25 @@ git clone --mirror <open_source_repo>
 move the folder to the internal environment.
 in the internal environment create on the server a repo with the same name and then: 
 ```
+git init --bare 
+git remote set-url 
 git push --mirror <open_source_repo>
 ```
+in the internal environment there will be a problem with the remotes urls, 
+in order to update those follow this [tutorial](http://pa1gitsolutions.blogspot.com/2015/07/changing-git-submodules-urlbranch-to.html)
+for each submodule: 
+```
+git config --file-.gitmodules submodule.SUBMODULENAME.url URL 
+```
+at the end: 
+```
+git submodule sync 
+git submodule update --init --recursive --remote 
+git pull --recurse-submodules 
+```
+**do this recursively from the bottom of the submodule tree to the top**
 
-in order to reproduce the internal environment outside - do the same in the outside environment.  
+(in order to reproduce the internal environment outside - do the same in the outside environment.)  
 
 downloading all the sources: 
 ```bitbake world --runall=fetch -k```
