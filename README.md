@@ -97,6 +97,13 @@ sudo apt update ; sudo apt-get install apt-transport-https ca-certificates -y ; 
 ```
 sudo apt update ; sudo apt-get install apt-transport-https ca-certificates -y ; sudo update-ca-certificates
 
+save disk space: 
+in local.conf add this line: 
+INHERIT += "rm_work" 
+
+if you want a given image to not take this effect: 
+RM_WORK_EXCLUDE += "core-image-minimal" 
+ 
 ## remaining questions 
 1. creating spacely machine 
 2. RTI 
