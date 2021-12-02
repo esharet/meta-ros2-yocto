@@ -10,5 +10,6 @@ BBLAYERS ?= " \
   ##OEROOT##/meta-poky \
   ##OEROOT##/meta-yocto-bsp \
   ##OEROOT##/../../meta-board/meta-tegra \
-  ##OEROOT##/../../meta-project-layer/ \
+  ##OEROOT##/../../meta-board/meta-cti \
+  ##OEROOT##/../../meta-project-layer \
   "
