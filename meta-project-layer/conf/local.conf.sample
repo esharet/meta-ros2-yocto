@@ -34,7 +34,8 @@
 #MACHINE ?= "edgerouter"
 #
 # This sets the default machine to be qemux86-64 if no other machine is selected:
-MACHINE ??= "spacely-tx2"
+#MACHINE ??= "spacely-tx2"
+MACHINE ??= "jetson-tx2-devkit"
 CORE_IMAGE_EXTRA_INSTALL += "dropbear vim libgpiod libgpiod-tools " 
 BB_GENERATE_MIRROR_TARBALLS = "1"
 

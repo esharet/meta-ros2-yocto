@@ -1,0 +1,1 @@
+PREFERRED_VERSION_python-idna = "3.3"
