@@ -1,0 +1,108 @@
+# yocto notes 
+
+## part 2
+### git projects 
+
+Important: set git branch in the SRC_URI line (default is master) 
+for autorevision (the last commit, being determined by git), use: 
+SRCREV  - the revision of the git project 
+to use always the latest revision use: 
+SRCREV = "${AUTOREV}" (not so sure if we should use it)
+a better method: use tag in SRC_URI line! 
+
+patch file can be created automatically by git! 
+
+## part 3
+much needed bitbake variables are in: 
+poky/meta/conf/bitbake.conf
+
+do not add the same file to two packages. it will go only into one of them. 
+
+### dependencies
+specific versions of recipes can be defined like this: 
+
+```
+DEPENDS = "recipe-b (>= 1.2)"
+RDEPENDS_${PN} = "recipe-b (>= 1.2)"
+```
+=, <, >, >=, <= operators are available
+
+to generate dependency information for a recipe, run :
+$ bitbake -g recipename
+
+for dependency explorer gui : 
+bitbake -g -u taskexp recipename
+
+### autotools 
+for out-of-tree builds (build directory is different than source directory) use: 
+inherit autotools-brokensep (vs inherit autotools)
+
+
+
+### devshell 
+a development shell that runs in the same context as the bitbake task engine
+the commands execute just as if the build system was executing them.
+bitbake -c devshell <recipename>
+
+for example we can view the system variables 
+in the temp folder of the workdir there are all (among other things) all the commands the yocto has executed, so in the devshell you are able to repeat them. 
+
+IMPORTANT POINT - 
+the changes in the devshell are local to the build it is executed in. 
+one way to keep track of these local changes outside is to create a git repo of the files being wworked on and commiting on every change and then using: 
+git format-patch 
+
+to create auto-patches using git outside the build environment
+
+### files path
+when a file is included in SRC_URI bitbake searches for FILESPATH and FILESEXTRAPATH variables
+
+
+## part 4
+### introduction 
+setscene - a task which helps reusability for bitbake. 
+
+SSTATE_DIR - the location of the state cache directory
+
+types of clean - 
+bitbake -c clean - removes all output files for a target from the do_unpack task onwards
+
+bitbake -c cleanall - removes all output files and shared state cache and downloaded source files for a target 
+
+bitbake -c cleansstate - removes all output files and shared state cache for a target
+
+### providers
+
+there are two namespaces that bitbake concerns itself with 
+1. recipe names (build time targets) 
+2. package names (run time targets)
+
+we can specify a build time target on the bitbake command line , but not a runtime target 
+
+RPROVIDES - a list of package name aliases that a package also provides.
+
+PREFFERED_VERSION - variable for choosing version out of multiple versions
+e.g. 
+PREFFERED_VERSION_python = "2.7.3"
+PREFFERED_VERSION_linux-yocto = "4.12%"
+
+### compatibility
+
+a recipe is considered incompatible with currently configured machine when either or both 
+COMPATIBLE_MACHINE vaieable and 
+COMPATIBLE_HOST  variables
+specify compatibily with a machine other than that of the current machine or host.
+
+### building offline 
+DL_DIR - path to downloads directory
+offline build will not work with SRC_REV = "${AUTOREV}" !!!
+
+
+### package group 
+where to store ? 
+<layer-dir>/recipes-*/pacakgegroups/<pacagegroup>.bb file
+
+naming convention: packagegroup-<name>.bb
+
+package group only create dependecies that trigger the build system to process the reipes of the packages the package group references.
+

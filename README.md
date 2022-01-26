@@ -19,7 +19,7 @@ move the folder to the internal environment.
 in the internal environment create on the server a repo with the same name and then: 
 ```
 git init --bare 
-git remote set-url 
+git remote set-url origin <internal_repo_url> 
 git push --mirror <open_source_repo>
 ```
 in the internal environment there will be a problem with the remotes urls, 
