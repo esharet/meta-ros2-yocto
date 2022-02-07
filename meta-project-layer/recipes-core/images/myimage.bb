@@ -6,7 +6,7 @@ SUMMARY = ""
 
 IMAGE_LINGUAS = "zh-cn en-us"
 IMAGE_NAME = "myimage" 
-IMAGE_INSTALL_append = " packagegroup-myutils " 
+IMAGE_INSTALL_append = " packagegroup-myutils python3-pyzmq" 
 
 
 
